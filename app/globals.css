@@ -3,25 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --deep-red: #8B0000;
+  --cream: #FFF8E7;
+  --gold: #D4AF37;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFF8E7;
+  color: #1a1a1a;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF8E7;
+}
+::-webkit-scrollbar-thumb {
+  background: #8B0000;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6B0000;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-deep-red text-cream px-8 py-3 font-sans font-medium tracking-widest uppercase text-sm border border-deep-red transition-all duration-300 hover:bg-transparent hover:text-deep-red inline-block;
+  }
+  .btn-outline-cream {
+    @apply bg-transparent text-cream px-8 py-3 font-sans font-medium tracking-widest uppercase text-sm border border-cream transition-all duration-300 hover:bg-cream hover:text-deep-red inline-block;
+  }
+  .btn-outline-red {
+    @apply bg-transparent text-deep-red px-8 py-3 font-sans font-medium tracking-widest uppercase text-sm border border-deep-red transition-all duration-300 hover:bg-deep-red hover:text-cream inline-block;
+  }
+  .section-heading {
+    @apply font-serif text-4xl md:text-5xl text-deep-red leading-tight;
+  }
+  .gold-divider {
+    @apply w-16 h-0.5 bg-gold mx-auto my-4;
+  }
+  .gold-divider-left {
+    @apply w-16 h-0.5 bg-gold my-4;
   }
 }
